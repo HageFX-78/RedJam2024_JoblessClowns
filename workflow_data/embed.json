@@ -1,0 +1,35 @@
+{
+    "content": "",
+    "embeds": [
+        {
+            "title": "[ {repository_owner}/{repository} ]",
+            "description": "Branch - [{branch}]({branch_url})",
+            "url": "{repository_url}",
+            "color": 7918427,
+            "fields": [
+                {
+                "name": ">>> {commit_title}",
+                "value": "```\n{commit_description} ``` \n `Link` - [`{commit_id}`]({event_compare})"
+                }
+            ],
+            "author": {
+                "name": "{actor}",
+                "url": "{actor_url}",
+                "icon_url": "{actor_avatar}"
+            },
+            "footer": {
+                "text": "Pushed at "
+            },
+            "timestamp": "{timestamp}",
+            "image": {
+                "url": ""
+            },
+            "thumbnail": {
+                "url": "{actor_avatar}"
+            }
+        }
+    ],
+    "username": "Melusine",
+    "avatar_url": "https://avatars.githubusercontent.com/u/89595749?v=4",
+    "attachments": []
+}
