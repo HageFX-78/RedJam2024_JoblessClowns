@@ -1,0 +1,90 @@
+name: Discord Notification
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 #Includes local files
+      - name: Create Changelog
+        id: changelog
+        uses: actions/github-script@v6.3.1
+        env:
+          REPOSITORY_OWNER: ${{ github.event.repository.owner.name }}
+          REPOSITORY: ${{ github.event.repository.name }}
+          BRANCH: ${{ github.ref }}
+          REPOSITORY_URL: ${{ github.event.repository.html_url }}
+          ACTOR_URL: ${{ github.event.sender.html_url }}
+          ACTOR_ICON: ${{ github.event.sender.avatar_url }}
+        with:
+          result-encoding: string
+          script: |
+            const commitsold = ${{ toJson(github.event.commits) }};
+
+            // Manually replace escaped newline characters to allow newline in terminal
+            const commits = commitsold.map(commit => ({
+              ...commit,
+              message: commit.message.replace(/\\n/g, '\n')
+            }));
+
+            const embedsmap = commits.map((commit, index) => {
+              const title = commit.message.split('\n')[0];
+              const description = commit.message.split('\n').slice(2).join('\n');
+              const sha = commit.id.slice(0, 7);
+              const repoUrl = index === 0?process.env.REPOSITORY_URL:'';
+
+              return {
+                title: `[ ${process.env.REPOSITORY_OWNER}/${process.env.REPOSITORY} ]`,
+                description: `Branch - [${process.env.BRANCH}]`,
+                url: `${repoUrl}`,
+                color: 12123938,
+                fields: [
+                  {
+                    name: `>>> ${title}`,
+                    value: `\`\`\`\n${description}  \`\`\`\n \`Link\` - [\`${sha}\`](${commit.url})`
+                  }
+                ],
+                author: {
+                  name: `${commit.author.username}`,
+                  url: `${process.env.ACTOR_URL}`,
+                  icon_url: `${process.env.ACTOR_ICON}`
+                },
+                footer: {
+                  text: "Pushed at "
+                },
+                timestamp: `${commit.timestamp}`,
+                image: {
+                  url: ""
+                },
+                thumbnail: {
+                  url: `${process.env.ACTOR_ICON}`
+                }
+              };
+            });
+
+            const payload = {
+              content: "Honk Honk :D",
+              embeds: embedsmap,
+              username: "Clown",
+              avatar_url: "https://media.discordapp.net/attachments/1267808136937476199/1267809393236508735/SPOILER_images_1.jpg?ex=66aa2302&is=66a8d182&hm=5c0b2bf0677d21499b4e82da2ec76fb546d3f9431711ebb1365aa58162a907e8&=&format=webp",
+              attachments: []
+            };
+
+            const jsonPayload = JSON.stringify(payload, null, 2);
+            console.log(jsonPayload);
+            return jsonPayload;
+
+      - name: Write JSON Payload to File
+        run: |
+          cat <<'EOF' > workflow_data/embed.json
+          ${{ steps.changelog.outputs.result }}
+          EOF
+      - name: Send Discord Webhook Action
+        env:
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d "@workflow_data/embed.json" "$WEBHOOK_URL"
