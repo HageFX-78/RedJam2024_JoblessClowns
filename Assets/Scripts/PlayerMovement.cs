@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject dragPoint;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject sprite;
+    [SerializeField] private GameObject pointerAnchor;
     [SerializeField] private GameObject pointerSprite;
 
     [Header("Movement parameters")]
@@ -52,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnMouseDown()
     {
         if (isMoving) return;
-        pointerSprite.SetActive(true);
+        rb.velocity = Vector2.zero; // Stop movement in case
+        pointerAnchor.SetActive(true);
         damping = minDamping;
     }
     private void OnMouseDrag()
@@ -74,13 +76,14 @@ public class PlayerMovement : MonoBehaviour
         // Pointer
         Vector2 dir = (Vector2)(dragPoint.transform.position - transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        pointerSprite.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        pointerAnchor.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        pointerSprite.transform.localScale = new Vector2(dir.magnitude * 2f, 1f);
     }
 
     private void OnMouseUp()
     {
         if (isMoving) return;
-        pointerSprite.SetActive(false);
+        pointerAnchor.SetActive(false);
 
 
         Vector2 finalForce = -(Vector2)dragPoint.transform.localPosition * ((Vector2)dragPoint.transform.localPosition).magnitude * shootForce;

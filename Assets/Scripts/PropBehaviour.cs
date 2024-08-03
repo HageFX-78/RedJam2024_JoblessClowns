@@ -10,6 +10,7 @@ public class PropBehaviour : MonoBehaviour
     [SerializeField] private Color32 color32;
     [SerializeField] private Color32 original;
 
+    [SerializeField] private PropType propType;
     private IEnumerator resetColor = null;
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,6 +26,8 @@ public class PropBehaviour : MonoBehaviour
             }
             resetColor = ResetColor();
             StartCoroutine(resetColor);
+
+            GameManager.instance.AddMoney(propType);
         }
     }
 
