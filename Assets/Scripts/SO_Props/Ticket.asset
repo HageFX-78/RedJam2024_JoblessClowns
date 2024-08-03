@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ticket
   m_EditorClassIdentifier: 
   name: Ticket
-  propType: 0
+  propType: 1
   propBaseCoinValue: 100
   propSprite: {fileID: 21300000, guid: 6a75f56c6814c3a43acee5fa0f9790a4, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}

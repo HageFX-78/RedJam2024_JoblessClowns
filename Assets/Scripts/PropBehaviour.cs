@@ -10,22 +10,46 @@ public class PropBehaviour : MonoBehaviour
     [SerializeField] private Color32 color32;
     [SerializeField] private Color32 original;
 
-    [SerializeField] private PropType propType;
+    private Collider2D thisCollider;
+    public Prop propData;
     private IEnumerator resetColor = null;
 
 
+    //TEST START
+    void Start()
+    {
+        InitializeProp(propData);
+    }
 
     public void InitializeProp(Prop prop)
     {
         spriteRenderer.color = prop.propColorOverlay;
         spriteRenderer.size = prop.propSpriteSize;
+        spriteRenderer.sprite = prop.propSprite;
+        propData = prop;
+
+        if (prop.colliderType == ColliderType.Circle)
+        {
+            CircleCollider2D circleCollider = gameObject.AddComponent<CircleCollider2D>();
+            circleCollider.radius = prop.propColliderRadius;
+            thisCollider = circleCollider;
+        }
+        else
+        {
+            BoxCollider2D boxCollider = gameObject.AddComponent<BoxCollider2D>();
+            boxCollider.size = prop.propColliderSize;
+            thisCollider = boxCollider;
+        }
+        thisCollider.isTrigger = prop.propType == PropType.Trigger;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            spriteAnimator.SetTrigger("Collide");
-            spriteRenderer.color = color32;
+            if(propData.propType == PropType.Normal)
+            {
+                spriteAnimator.SetTrigger("Collide");
+            }
             ps.Play();
 
             if (resetColor != null)
@@ -35,13 +59,29 @@ public class PropBehaviour : MonoBehaviour
             resetColor = ResetColor();
             StartCoroutine(resetColor);
 
-            GameManager.instance.AddMoney(propType);
+            GameManager.instance.AddMoney(propData.propBaseCoinValue);
         }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            thisCollider.enabled = false;
+            spriteAnimator.SetTrigger("Trigger");
+            GameManager.instance.AddMoney(propData.propBaseCoinValue);
+            ps.Play();
+
+            Invoke("DestroyProp", 0.5f);
+        }
+    }
+    private void DestroyProp()
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator ResetColor()
     {
         yield return new WaitForSeconds(0.3f);
-        spriteRenderer.color = original;
+        spriteRenderer.color = Color.white;
     }
 }

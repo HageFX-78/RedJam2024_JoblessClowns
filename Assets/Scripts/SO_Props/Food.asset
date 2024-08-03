@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   name: Food
-  propType: 0
+  propType: 1
   propBaseCoinValue: 20
   propSprite: {fileID: 21300000, guid: f43ee58a8d8622d4cbad53dee478961f, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
