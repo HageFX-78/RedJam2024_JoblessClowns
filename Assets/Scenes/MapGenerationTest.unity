@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 310724714}
   - component: {fileID: 310724715}
+  - component: {fileID: 310724716}
   m_Layer: 0
   m_Name: MapGeneration
   m_TagString: Untagged
@@ -167,15 +168,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624cee2b41ba5614e8d505615c9d2982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomFactory: {fileID: 310724716}
   tilemap: {fileID: 989323417}
   floorTile: {fileID: 11400000, guid: 8806ce5ba83163b4ca05f513111b90dd, type: 2}
+  mapLength: 9
+  mapWidth: 9
+  roomSize: 1
+--- !u!114 &310724716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310724713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8195efbfc28953e498acf456e77d0ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   lobbyRoomPrefab: {fileID: 0}
   tappyRoomPrefab: {fileID: 0}
   bamRoomPrefab: {fileID: 0}
   oguRoomPrefab: {fileID: 0}
-  mapLength: 3
-  mapWidth: 3
-  roomSize: 1
 --- !u!1 &698285388
 GameObject:
   m_ObjectHideFlags: 0
