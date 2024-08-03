@@ -281,3 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoadto: -1
+  buttonSoundClip: {fileID: 8300000, guid: 63948d323685b08469443dc4dc9b87ae, type: 3}
