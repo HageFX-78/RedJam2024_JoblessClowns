@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum PropType
-{
-    Normal,
-    Trigger
-}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -21,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator moneyTextAnimator;
 
     [SerializeField] private float timeLimit = 240f;
+
+    [SerializeField] public List<Prop> propList;
 
 
     private float currentTime = 0f;

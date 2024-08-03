@@ -12,6 +12,14 @@ public class PropBehaviour : MonoBehaviour
 
     [SerializeField] private PropType propType;
     private IEnumerator resetColor = null;
+
+
+
+    public void InitializeProp(Prop prop)
+    {
+        spriteRenderer.color = prop.propColorOverlay;
+        spriteRenderer.size = prop.propSpriteSize;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
