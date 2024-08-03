@@ -129,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isMoving = true;
     }
+
     private void ResetScale()
     {
         sprite.transform.localScale = Vector2.one;
