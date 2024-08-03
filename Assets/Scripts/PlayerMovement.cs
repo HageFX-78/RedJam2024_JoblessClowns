@@ -11,37 +11,50 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject dragPoint;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject sprite;
+    [SerializeField] private GameObject pointerSprite;
 
-
+    [Header("Movement parameters")]
     [SerializeField] private float dragDistance = 1.5f;
     [SerializeField] private float shootForce = 100f;
-    [SerializeField] private float damping = 0.99f;
+    [SerializeField] private float minDamping = 0.9999f;
+    [SerializeField] private float maxDampThreshold = 2f;
+    [SerializeField] private float maxDamping = 0.995f;
+    [SerializeField] private float stopMovementThreshold = 0.2f;
     [SerializeField] private float wallDamping = 0.9f;
 
+    [Header("Debug")]
     public bool isMoving = false;
     private Vector2 lastVelocity = Vector2.zero;
+    private float damping = 0.99f;
 
     private IEnumerator spriteShake = null;
     private IEnumerator squishAndSquash = null;
+    private IEnumerator triggerMovingState = null;
     private Vector2 lastContactNormal = Vector2.zero;
 
     // ------------------------------------------------------- Unity functions
 
     void Update()
-    {
+    {   if(! isMoving) return;
         lastVelocity = rb.velocity;
         rb.velocity *= damping;
-        if(isMoving && lastVelocity.magnitude <= 0.2f)
+        // Increase  damping when velocity is under threshold
+        if(lastVelocity.magnitude <= maxDampThreshold)
         {
-            isMoving = false;
-            rb.velocity = Vector2.zero;
+            damping = maxDamping;
+            // Stops movement when under specified threshold
+            if(lastVelocity.magnitude <= stopMovementThreshold){
+                isMoving = false;
+                rb.velocity = Vector2.zero;
+            }
         }
     }
     private void OnMouseDown()
     {
-        //dragPoint.SetActive(true);
+        if (isMoving) return;
+        pointerSprite.SetActive(true);
+        damping = minDamping;
     }
-
     private void OnMouseDrag()
     {
         if (isMoving) return;
@@ -57,14 +70,24 @@ public class PlayerMovement : MonoBehaviour
                 (Vector2)transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition)
                 , dragDistance
                 );
+
+        // Pointer
+        Vector2 dir = (Vector2)(dragPoint.transform.position - transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        pointerSprite.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
 
     private void OnMouseUp()
     {
         if (isMoving) return;
+        pointerSprite.SetActive(false);
 
-        rb.AddForce(-(Vector2)dragPoint.transform.localPosition * ((Vector2)dragPoint.transform.localPosition).magnitude * shootForce);
-        dragPoint.transform.localPosition = Vector2.zero;
+
+        Vector2 finalForce = -(Vector2)dragPoint.transform.localPosition * ((Vector2)dragPoint.transform.localPosition).magnitude * shootForce;
+        lastVelocity = finalForce; // Cache initial velocity
+
+        rb.AddForce(finalForce);
+        dragPoint.transform.localPosition = Vector2.zero; // Reset drag point
 
         if(spriteShake != null)
         {
@@ -72,7 +95,14 @@ public class PlayerMovement : MonoBehaviour
             spriteShake = null;
             sprite.transform.localPosition = Vector3.zero;
         }
-        Invoke("TriggerMoving", 0.1f);
+
+        if (triggerMovingState != null)
+        {
+            StopCoroutine(triggerMovingState);
+            triggerMovingState = null;
+        }
+        triggerMovingState = TriggerMovingState();
+        StartCoroutine(triggerMovingState);
         
     }
 
@@ -80,24 +110,17 @@ public class PlayerMovement : MonoBehaviour
     {
         // Bounce off the wall
         lastContactNormal = other.contacts[0].normal;
-        Debug.Log(lastContactNormal);
         Vector2 direction = Vector2.Reflect(lastVelocity.normalized, lastContactNormal);
         rb.velocity = direction * lastVelocity.magnitude * wallDamping;
 
-        if(squishAndSquash == null)
+        if(squishAndSquash != null)
         {
-            squishAndSquash = SquishAndSquash();
-            StartCoroutine(squishAndSquash);
-        }else
-        {
-            
             StopCoroutine(squishAndSquash);
             squishAndSquash = null;
             ResetScale();
-
-            squishAndSquash = SquishAndSquash();
-            StartCoroutine(squishAndSquash);
         }
+        squishAndSquash = SquishAndSquash();
+        StartCoroutine(squishAndSquash);
     }
 
 
@@ -112,6 +135,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // ------------------------------------------------------- Coroutines
+    public IEnumerator TriggerMovingState()
+    {
+        yield return new WaitForSeconds(0.1f);
+        TriggerMoving();
+        triggerMovingState = null;
+    }
     public IEnumerator ShakeSprite()
     {
         Vector3 originalPos = sprite.transform.position;
@@ -131,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 flipDirection = new Vector2(
             math.abs(lastContactNormal.x) > math.abs(lastContactNormal.y) ? 1 : math.abs(lastContactNormal.y) * 0.9f, 
             math.abs(lastContactNormal.y) > math.abs(lastContactNormal.x) ? 1 : math.abs(lastContactNormal.x) * 0.9f);
-        // size sprite by 1.5 and go back to 1 with sine wave
+        // size sprite by 0.9 and go back to 1 with sine wave
         while (currentTime < duration)
         {
             
