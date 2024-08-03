@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 12f586edf951600458f46c2e673d9a85
+guid: e821e05fb08de4449aefe09b9f365c63
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,101 +149,178 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WallForAllUse_512X512px each_0
+      name: airport benchx3x1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 17
+        y: 433
+        width: 351
+        height: 231
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -160, y: -256}
-        - {x: -160, y: 256}
-        - {x: -256, y: 256}
-        - {x: -256, y: -256}
+      - - {x: 171.5, y: 98.5}
+        - {x: 159.5, y: 115.5}
+        - {x: -172.5, y: 115.5}
+        - {x: -175.5, y: 103.5}
+        - {x: -175.5, y: -115.5}
+        - {x: 156.5, y: -115.5}
+        - {x: 175.5, y: -96.5}
       tessellationDetail: 0
       bones: []
-      spriteID: ff0ecf3d1c7fbde439b57cf6bb0a8157
-      internalID: 1129327870
+      spriteID: 215e5058c66eed94a8787985f5da597c
+      internalID: 251673131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallForAllUse_512X512px each_1
+      name: airport benchx3x1_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 512
-        height: 512
+        x: 410
+        y: 433
+        width: 150
+        height: 231
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -161, y: -256}
-        - {x: -161, y: 256}
-        - {x: -256, y: 256}
-        - {x: -256, y: -256}
+      - - {x: 74, y: 8.5}
+        - {x: 75, y: 74.5}
+        - {x: 75, y: 95.5}
+        - {x: 73, y: 113.5}
+        - {x: 63, y: 115.5}
+        - {x: -65, y: 115.5}
+        - {x: -75, y: 95.5}
+        - {x: -75, y: 7.5}
+        - {x: -75, y: 1.5}
+        - {x: -75, y: -24.5}
+        - {x: -73, y: -93.5}
+        - {x: -58, y: -115.5}
+        - {x: 57, y: -115.5}
+        - {x: 75, y: -93.5}
+        - {x: 75, y: 0.5}
       tessellationDetail: 0
       bones: []
-      spriteID: dc2240fb308b3b64c9cfaee82ad2da63
-      internalID: 1484459460
+      spriteID: 2df8effc4ec1022488bf0073f5844f61
+      internalID: 400971321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallForAllUse_512X512px each_2
+      name: airport benchx3x1_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 512
-        height: 512
+        x: 17
+        y: 270
+        width: 351
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -161, y: -256}
-        - {x: -161, y: 256}
-        - {x: -256, y: 256}
-        - {x: -256, y: -256}
+      - - {x: -175.5, y: 67}
+        - {x: -175.5, y: -50}
+        - {x: -158.5, y: -67}
+        - {x: 175.5, y: -67}
+        - {x: 175.5, y: 67}
       tessellationDetail: 0
       bones: []
-      spriteID: 525ddc96929e10142b0ff78a13ec93b6
-      internalID: 848083043
+      spriteID: a10f464d002b8e64ea2e5e9d816e51a9
+      internalID: -575400532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallForAllUse_512X512px each_3
+      name: airport benchx3x1_3
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 512
-        height: 512
+        x: 410
+        y: 270
+        width: 147
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -161, y: -256}
-        - {x: -161, y: 256}
-        - {x: -256, y: 256}
-        - {x: -256, y: -256}
+      - - {x: 62.5, y: 67}
+        - {x: -62.5, y: 67}
+        - {x: -73.5, y: 48}
+        - {x: -73.5, y: -41}
+        - {x: -69.5, y: -44}
+        - {x: -56.5, y: -43}
+        - {x: -41.5, y: -67}
+        - {x: 60.5, y: -67}
+        - {x: 73.5, y: -47}
+        - {x: 73.5, y: 49}
+        - {x: 70.5, y: 52}
       tessellationDetail: 0
       bones: []
-      spriteID: 490a34623ab4921409628645eba78831
-      internalID: 606472913
+      spriteID: a66b1027d48fe0b439b2d5462ab4ad25
+      internalID: 69820690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: airport benchx3x1_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 36
+        width: 348
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -165, y: 104.5}
+        - {x: -174, y: 81.5}
+        - {x: -174, y: -104.5}
+        - {x: 169, y: -104.5}
+        - {x: 174, y: -95.5}
+        - {x: 174, y: 104.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4def2e38cbb9bf459b2313c879f4147
+      internalID: 603770579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: airport benchx3x1_5
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 35
+        width: 146
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -52, y: 104.5}
+        - {x: -73, y: 12.5}
+        - {x: -73, y: -97.5}
+        - {x: -60, y: -104.5}
+        - {x: 70, y: -104.5}
+        - {x: 73, y: -103.5}
+        - {x: 73, y: 104.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f07d3942dcc094197021c7e035df8b
+      internalID: 1309407065
       vertices: []
       indices: 
       edges: []
@@ -259,10 +336,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WallForAllUse_512X512px each_0: 1129327870
-      WallForAllUse_512X512px each_1: 1484459460
-      WallForAllUse_512X512px each_2: 848083043
-      WallForAllUse_512X512px each_3: 606472913
+      airport benchx3x1_0: 251673131
+      airport benchx3x1_1: 400971321
+      airport benchx3x1_2: -575400532
+      airport benchx3x1_3: 69820690
+      airport benchx3x1_4: 603770579
+      airport benchx3x1_5: 1309407065
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

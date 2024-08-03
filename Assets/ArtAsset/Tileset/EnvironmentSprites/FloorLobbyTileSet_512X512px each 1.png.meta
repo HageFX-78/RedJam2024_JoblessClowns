@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 436f813f01e20ae499d6340c4d1051af
+guid: 530826d3c1a850f47ab661f3afc36a4d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -149,76 +149,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WallShopInteriorTileSet_512X512px each_0
+      name: FloorLobbyTileSet_512X512px each 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1017.3334
         width: 511.66666
-        height: 512
+        height: 508.66666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -255.83333, y: 256}
-        - {x: -255.83333, y: -256}
-        - {x: 255.83333, y: -256}
-        - {x: 255.83333, y: 256}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27d434715ebbca244afe3aa7ce3d27f2
-      internalID: 76850423
+      spriteID: 523cc73b993fb6f439046cd23813645e
+      internalID: 171683212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallShopInteriorTileSet_512X512px each_1
+      name: FloorLobbyTileSet_512X512px each 1_1
       rect:
         serializedVersion: 2
         x: 511
-        y: 0
+        y: 1017.3334
         width: 511.66666
-        height: 512
+        height: 508.66666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -255.83333, y: 256}
-        - {x: -255.83333, y: -256}
-        - {x: 255.83333, y: -256}
-        - {x: 255.83333, y: 256}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25576068c0d580546b471c9b580ef903
-      internalID: -317819907
+      spriteID: 53bad0d5797e2f74fa0df75700173f9b
+      internalID: 752873293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallShopInteriorTileSet_512X512px each_2
+      name: FloorLobbyTileSet_512X512px each 1_2
       rect:
         serializedVersion: 2
         x: 1022
-        y: 0
+        y: 1017.3334
         width: 511.66666
-        height: 512
+        height: 508.66666
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -255.83333, y: 256}
-        - {x: -255.83333, y: -256}
-        - {x: 255.83333, y: -256}
-        - {x: 255.83333, y: 256}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f36893bfd2cc4914780b5e81c0300f10
-      internalID: 567191297
+      spriteID: 6f3de345d22a55a4fb3e7242c241cd76
+      internalID: -2058096316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorLobbyTileSet_512X512px each 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 509.33334
+        width: 511.66666
+        height: 508.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda97f40effb1d54a87ac34480f199d9
+      internalID: -1917787409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorLobbyTileSet_512X512px each 1_4
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 509.33334
+        width: 511.66666
+        height: 508.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91021b6a36c9ff942a6cff1560c9826d
+      internalID: -1874095782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorLobbyTileSet_512X512px each 1_5
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 509.33334
+        width: 511.66666
+        height: 508.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d207f7588af217143bf19af90ad24a33
+      internalID: -1802563866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorLobbyTileSet_512X512px each 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333435
+        width: 511.66666
+        height: 508.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b0731285b6d80479d3ba788384447a
+      internalID: 1316762910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorLobbyTileSet_512X512px each 1_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1.3333435
+        width: 511.66666
+        height: 508.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ce55a7eaaf88c4fa63216c2796ebea
+      internalID: -1071766286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorLobbyTileSet_512X512px each 1_8
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1.3333435
+        width: 511.66666
+        height: 508.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d4e901554a57b4c831c6cfe9bcafd3
+      internalID: -1200640020
       vertices: []
       indices: 
       edges: []
@@ -234,9 +348,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WallShopInteriorTileSet_512X512px each_0: 76850423
-      WallShopInteriorTileSet_512X512px each_1: -317819907
-      WallShopInteriorTileSet_512X512px each_2: 567191297
+      FloorLobbyTileSet_512X512px each 1_0: 171683212
+      FloorLobbyTileSet_512X512px each 1_1: 752873293
+      FloorLobbyTileSet_512X512px each 1_2: -2058096316
+      FloorLobbyTileSet_512X512px each 1_3: -1917787409
+      FloorLobbyTileSet_512X512px each 1_4: -1874095782
+      FloorLobbyTileSet_512X512px each 1_5: -1802563866
+      FloorLobbyTileSet_512X512px each 1_6: 1316762910
+      FloorLobbyTileSet_512X512px each 1_7: -1071766286
+      FloorLobbyTileSet_512X512px each 1_8: -1200640020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
