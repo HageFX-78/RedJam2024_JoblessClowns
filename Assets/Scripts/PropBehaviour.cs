@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PropBehaviour : MonoBehaviour
+{
+    [SerializeField] private Animator spriteAnimator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private ParticleSystem ps;
+    [SerializeField] private Color32 color32;
+    [SerializeField] private Color32 original;
+
+    private IEnumerator resetColor = null;
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            spriteAnimator.SetTrigger("Collide");
+            spriteRenderer.color = color32;
+            ps.Play();
+
+            if (resetColor != null)
+            {
+                StopCoroutine(resetColor);
+            }
+            resetColor = ResetColor();
+            StartCoroutine(resetColor);
+        }
+    }
+
+    private IEnumerator ResetColor()
+    {
+        yield return new WaitForSeconds(0.3f);
+        spriteRenderer.color = original;
+    }
+}

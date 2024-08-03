@@ -113,14 +113,15 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction = Vector2.Reflect(lastVelocity.normalized, lastContactNormal);
         rb.velocity = direction * lastVelocity.magnitude * wallDamping;
 
-        if(squishAndSquash != null)
+        Animate();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Prop"))
         {
-            StopCoroutine(squishAndSquash);
-            squishAndSquash = null;
-            ResetScale();
+            // Rob item
+            Animate();
         }
-        squishAndSquash = SquishAndSquash();
-        StartCoroutine(squishAndSquash);
     }
 
 
@@ -132,6 +133,17 @@ public class PlayerMovement : MonoBehaviour
     private void ResetScale()
     {
         sprite.transform.localScale = Vector2.one;
+    }
+    private void Animate()
+    {
+        if(squishAndSquash != null)
+        {
+            StopCoroutine(squishAndSquash);
+            squishAndSquash = null;
+            ResetScale();
+        }
+        squishAndSquash = SquishAndSquash();
+        StartCoroutine(squishAndSquash);
     }
 
     // ------------------------------------------------------- Coroutines
