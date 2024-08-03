@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 436f813f01e20ae499d6340c4d1051af
+guid: ab610f44c5922bc42b9ec86637a06e6c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WallShopInteriorTileSet_512X512px each_0
+      name: WallShopEntryTileSet_512X512px each_0
       rect:
         serializedVersion: 2
         x: 0
@@ -157,24 +157,20 @@ TextureImporter:
         width: 511.66666
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -255.83333, y: 256}
-        - {x: -255.83333, y: -256}
-        - {x: 255.83333, y: -256}
-        - {x: 255.83333, y: 256}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27d434715ebbca244afe3aa7ce3d27f2
-      internalID: 76850423
+      spriteID: 2935a62d5963bca4e8b77e297c7a7a76
+      internalID: 519847582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallShopInteriorTileSet_512X512px each_1
+      name: WallShopEntryTileSet_512X512px each_1
       rect:
         serializedVersion: 2
         x: 511
@@ -182,24 +178,20 @@ TextureImporter:
         width: 511.66666
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -255.83333, y: 256}
-        - {x: -255.83333, y: -256}
-        - {x: 255.83333, y: -256}
-        - {x: 255.83333, y: 256}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25576068c0d580546b471c9b580ef903
-      internalID: -317819907
+      spriteID: f5d0a37500731de468a1ed5a665f8875
+      internalID: -602855013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallShopInteriorTileSet_512X512px each_2
+      name: WallShopEntryTileSet_512X512px each_2
       rect:
         serializedVersion: 2
         x: 1022
@@ -207,18 +199,14 @@ TextureImporter:
         width: 511.66666
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -255.83333, y: 256}
-        - {x: -255.83333, y: -256}
-        - {x: 255.83333, y: -256}
-        - {x: 255.83333, y: 256}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f36893bfd2cc4914780b5e81c0300f10
-      internalID: 567191297
+      spriteID: d32f76de45a8c7f418d8c2dccbcaca33
+      internalID: 1161068532
       vertices: []
       indices: 
       edges: []
@@ -234,9 +222,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WallShopInteriorTileSet_512X512px each_0: 76850423
-      WallShopInteriorTileSet_512X512px each_1: -317819907
-      WallShopInteriorTileSet_512X512px each_2: 567191297
+      WallShopEntryTileSet_512X512px each_0: 519847582
+      WallShopEntryTileSet_512X512px each_1: -602855013
+      WallShopEntryTileSet_512X512px each_2: 1161068532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

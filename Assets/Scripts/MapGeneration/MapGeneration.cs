@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -18,23 +17,17 @@ public class MapGeneration : MonoBehaviour
 {
     public static MapGeneration Instance;
 
+    [SerializeField] private RoomFactory roomFactory;
+
     [Header("Map Components")]
+    [SerializeField] private GameObject grid;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private TileBase floorTile;
 
-    [Header("Room Configs")]
-    [SerializeField] GameObject lobbyRoomPrefab;
-    [SerializeField] GameObject tappyRoomPrefab;
-    [SerializeField] GameObject bamRoomPrefab;
-    [SerializeField] GameObject oguRoomPrefab;
-
-    [Header("Map Config")]
+    [Header("Map Config - unit in tiles")]
     [SerializeField] private int mapLength;
     [SerializeField] private int mapWidth;
     [SerializeField] private int roomSize = 1;
-
-
-    private int[,] tilemapArray;
 
     private void Awake()
     {
@@ -64,17 +57,15 @@ public class MapGeneration : MonoBehaviour
     {
         tilemap.ClearAllTiles();
 
-        var xOffset = Mathf.RoundToInt(mapLength / 2);
-        var yOffset = Mathf.RoundToInt(mapWidth / 2);
+        int maxIndex = mapLength * mapWidth;
 
-        for (int x = 0; x < mapLength; x++)
+        for (int i = 0; i < maxIndex; i++)
         {
-            for(int y= 0; y < mapWidth; y++)
-            {
-                var tileLocation = new Vector3Int(x - xOffset, y - yOffset, 0);
+            int row = i / mapWidth; // determines row
+            int column = i % mapWidth; // determines column
 
-                tilemap.SetTile(tileLocation, floorTile);
-            }
+            var tileLocation = new Vector3Int(row , column , 0);
+            tilemap.SetTile(tileLocation, floorTile);
         }
     }
 
@@ -85,59 +76,58 @@ public class MapGeneration : MonoBehaviour
 
         bool[,] rooms = new bool[roomsX, roomsY];
 
-        //set start room
-        Vector3Int startRoom = GetEdgeRoom(roomsX, roomsY);
-        rooms[startRoom.x, startRoom.y] = true;
-
-        //PlaceRoom(RoomType.Lobby, startRoom.x, startRoom.y);
+        Vector3 convertedWorldPosition = new();
+        Vector3Int roomLocation;
 
         foreach(RoomType type in Enum.GetValues(typeof(RoomType)))
         {
             if(type == RoomType.Lobby)
             {
-                continue;
+                roomLocation = GetEdgeRoom(roomsX, roomsY);
+            }
+            else
+            {
+                roomLocation = GetRandomRoom(rooms, roomsX, roomsY);
             }
 
-            //PlaceRoom(type, );
-        }
+            //mark it as occupied
+            rooms[roomLocation.x, roomLocation.y] = true;
 
+            //create rooms and set its position
+            GameObject roomPrefab = roomFactory.PlaceRoom(grid.transform, type);
 
+            convertedWorldPosition = ConvertRoomsToWorldPosition(roomLocation, roomPrefab);
+            roomPrefab.transform.position = convertedWorldPosition;
 
 #if UNITY_EDITOR
-        Debug.Log($"Location of lobby room is {startRoom}");
+            Debug.Log($"{type}'s room location is {roomLocation}");
+            Debug.Log($"{type}'s world location is {convertedWorldPosition}");
 #endif
-    }
-
-    private void PlaceRoom(RoomType roomType, int roomsX, int roomsY)
-    {
-        Vector3 roomPosition = new();
-
-        switch (roomType)
-        {
-            case RoomType.Lobby:
-                Instantiate(lobbyRoomPrefab, roomPosition, Quaternion.identity);
-                break;
-
-            case RoomType.Tappy:
-                Instantiate(tappyRoomPrefab, roomPosition, Quaternion.identity);
-
-                break;
-
-            case RoomType.Bam:
-                Instantiate(bamRoomPrefab, roomPosition, Quaternion.identity);
-
-                break;
-
-            case RoomType.Ogu:
-                Instantiate(oguRoomPrefab, roomPosition, Quaternion.identity);
-                break;
         }
-
     }
 
-    private Vector2Int GetRandomRoom()
+    private Vector3 ConvertRoomsToWorldPosition(Vector3Int roomLocation, GameObject roomPrefab)
     {
-        return new();
+        Tilemap roomTilemap = roomPrefab.GetComponent<Tilemap>();
+        roomTilemap.CompressBounds();
+
+        var newLocation = new Vector3((roomLocation.x * roomSize), (roomLocation.y * roomSize), 0);
+
+        return newLocation;
+    }
+
+    private Vector3Int GetRandomRoom(bool[,] rooms, int roomsX, int roomsY)
+    {
+        int row, column;
+
+        do
+        {
+            row = Random.Range(0, roomsX);
+            column = Random.Range(0, roomsY);
+        } 
+        while (rooms[row, column]);
+
+        return new Vector3Int(row, column, 0);
     }
 
     private Vector3Int GetEdgeRoom(int roomsX, int roomsY)
