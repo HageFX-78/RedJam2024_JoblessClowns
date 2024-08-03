@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomFactory : MonoBehaviour
@@ -10,27 +11,29 @@ public class RoomFactory : MonoBehaviour
     [SerializeField] GameObject bamRoomPrefab;
     [SerializeField] GameObject oguRoomPrefab;
 
-    public GameObject PlaceRoom(RoomType roomType, int roomsX, int roomsY)
+    public GameObject PlaceRoom(Transform gridParent, RoomType roomType)
     {
-        Vector3 roomPosition = new();
+        GameObject room = null;
 
         switch (roomType)
         {
             case RoomType.Lobby:
-                return Instantiate(lobbyRoomPrefab, roomPosition, Quaternion.identity);
+                room = Instantiate(lobbyRoomPrefab, gridParent);
+                break;
 
             case RoomType.Tappy:
-                return Instantiate(tappyRoomPrefab, roomPosition, Quaternion.identity);
+                room = Instantiate(tappyRoomPrefab, gridParent);
+                break;
 
             case RoomType.Bam:
-                return Instantiate(bamRoomPrefab, roomPosition, Quaternion.identity);
+                room = Instantiate(bamRoomPrefab, gridParent);
+                break;
 
             case RoomType.Ogu:
-                return Instantiate(oguRoomPrefab, roomPosition, Quaternion.identity);
+                room = Instantiate(oguRoomPrefab, gridParent);
+                break;
         }
 
-        //fallback, this should not happen
-        Debug.LogError("Failed to create room, check room enum passed in");
-        return null;
+        return room;
     }
 }
