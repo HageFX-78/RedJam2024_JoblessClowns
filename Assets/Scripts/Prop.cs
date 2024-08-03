@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum PropType
 {
-    Normal,
-    Trigger
+    Trigger,
+    Normal
 }
 
 public enum ColliderType

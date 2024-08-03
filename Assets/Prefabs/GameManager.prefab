@@ -77,11 +77,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalPropBaseValue: 10
   triggerPropBaseValue: 50
+  spawnList: []
+  triggerPropList: []
   moneyText: {fileID: 2428306697510322421}
   timeText: {fileID: 776385532968877094}
   moneyTextAnimator: {fileID: 8971488339645356013}
   timeLimit: 120
-  propList: []
+  propList:
+  - {fileID: 11400000, guid: b90119ef02dd32a418e7153a8825bfee, type: 2}
+  - {fileID: 11400000, guid: 894af9abd4fcdd14cba5b6450d8970df, type: 2}
+  - {fileID: 11400000, guid: 97f9a6786375dc248b7556ff60cb2aab, type: 2}
+  - {fileID: 11400000, guid: 591c78d715422da46a1915cd0cd3d82d, type: 2}
+  - {fileID: 11400000, guid: aaf69173685173743adb3fb926205c1a, type: 2}
+  - {fileID: 11400000, guid: 4833874c818008f4ab3cd2872e121657, type: 2}
+  - {fileID: 11400000, guid: 8f0e32f412d35af4b8d746b6a37b590a, type: 2}
+  - {fileID: 11400000, guid: b7908f655ed1cec4d898156f230ecdb6, type: 2}
+  - {fileID: 11400000, guid: 1835a6bd7d0903d479ffb4225c7a91c4, type: 2}
   gameStarted: 0
   moneyAmount: 0
 --- !u!114 &7070936877050885676
@@ -158,11 +169,11 @@ RectTransform:
   - {fileID: 5507227141822963295}
   m_Father: {fileID: 7807722199548390924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 800, y: 0}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &2896906257354565654
 CanvasRenderer:
   m_ObjectHideFlags: 0

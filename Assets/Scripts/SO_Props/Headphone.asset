@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Headphone
   m_EditorClassIdentifier: 
   name: Headphone
-  propType: 1
+  propType: 0
   propBaseCoinValue: 80
   propSprite: {fileID: 21300000, guid: 500c489aba9ed0348b5d9733064cb102, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 1
-  propSpriteSize: {x: 1, y: 1}
-  propColliderRadius: 1
+  propSpriteSize: {x: 0.5, y: 0.5}
+  propColliderRadius: 0.8
   propColliderSize: {x: 1, y: 1}

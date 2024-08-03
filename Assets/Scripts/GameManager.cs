@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int normalPropBaseValue = 10;
     [SerializeField] int triggerPropBaseValue = 50;
 
+    [SerializeField] private GameObject spawnPointParent;
+    [SerializeField] private GameObject propBasePrefab;
     [Header("in-game Gui")]
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI timeText;
@@ -18,12 +21,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeLimit = 240f;
 
-    [SerializeField] public List<Prop> propList;
+    [SerializeField] public List<Prop> propList; // Trigger prop list NOT NORMAL
 
 
     private float currentTime = 0f;
     public bool gameStarted = false;
     public int moneyAmount = 0; // The amount of money the player has, score but we can use it for something maybe
+
+    private List<KeyValuePair<Transform, bool>> spawnPoints = new List<KeyValuePair<Transform, bool>>();
     void Start()
     {
         if(instance == null)
@@ -33,6 +38,16 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+        foreach (Transform g in spawnPointParent.GetComponentsInChildren<Transform>())
+        {
+            spawnPoints.Add(new KeyValuePair<Transform, bool>(g, true));
+            Prop prop = propList[Random.Range(0, propList.Count)];
+
+            GameObject propObj = Instantiate(propBasePrefab, g.position, Quaternion.identity);
+            //set propObj parent to a child object named clones
+            propObj.transform.SetParent(transform.Find("Clones"));
+            propObj.GetComponent<PropBehaviour>().InitializeProp(prop);
         }
         StartGame();
 

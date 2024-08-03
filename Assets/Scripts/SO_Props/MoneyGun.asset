@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MoneyGun
   m_EditorClassIdentifier: 
   name: MoneyGun
-  propType: 0
+  propType: 1
   propBaseCoinValue: 100
   propSprite: {fileID: 21300000, guid: 7733a630c2b9d644cbb79c8ef564f2b7, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 0
-  propSpriteSize: {x: 1, y: 1}
-  propColliderRadius: 1
+  propSpriteSize: {x: 0.5, y: 0.5}
+  propColliderRadius: 0.8
   propColliderSize: {x: 1, y: 1}

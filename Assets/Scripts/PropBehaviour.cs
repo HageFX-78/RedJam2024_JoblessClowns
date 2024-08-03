@@ -14,13 +14,6 @@ public class PropBehaviour : MonoBehaviour
     public Prop propData;
     private IEnumerator resetColor = null;
 
-
-    //TEST START
-    void Start()
-    {
-        InitializeProp(propData);
-    }
-
     public void InitializeProp(Prop prop)
     {
         spriteRenderer.color = prop.propColorOverlay;

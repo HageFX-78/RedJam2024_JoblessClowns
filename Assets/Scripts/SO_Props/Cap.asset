@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Cap
   m_EditorClassIdentifier: 
   name: Cap
-  propType: 1
+  propType: 0
   propBaseCoinValue: 30
   propSprite: {fileID: 21300000, guid: 2df20f8be6795c14d9f4e2cbff1688e8, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 1
-  propSpriteSize: {x: 1, y: 1}
-  propColliderRadius: 1
+  propSpriteSize: {x: 0.5, y: 0.5}
+  propColliderRadius: 0.8
   propColliderSize: {x: 1, y: 1}

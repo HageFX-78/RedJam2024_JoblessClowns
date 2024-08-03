@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Ticket
   m_EditorClassIdentifier: 
   name: Ticket
-  propType: 1
+  propType: 0
   propBaseCoinValue: 100
   propSprite: {fileID: 21300000, guid: 6a75f56c6814c3a43acee5fa0f9790a4, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 0
-  propSpriteSize: {x: 1, y: 1}
-  propColliderRadius: 1
+  propSpriteSize: {x: 0.5, y: 0.5}
+  propColliderRadius: 0.8
   propColliderSize: {x: 1, y: 1}
