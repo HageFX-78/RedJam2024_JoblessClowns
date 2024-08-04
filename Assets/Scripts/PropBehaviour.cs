@@ -68,7 +68,7 @@ public class PropBehaviour : MonoBehaviour
                     SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("tappy"), transform, 1f);
                 } 
                 
-                spriteAnimator.SetTrigger("Buds");
+                 spriteAnimator.SetTrigger("Collide");
             }else
             {
                 SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("hit"), transform, 1f);
@@ -83,6 +83,7 @@ public class PropBehaviour : MonoBehaviour
             resetColor = ResetColor();
             StartCoroutine(resetColor);
 
+            SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("Coin"), transform, 1f);
             GameManager.instance.AddMoney(propData.propBaseCoinValue);
             GameManager.instance.ShakeCamera();
         }

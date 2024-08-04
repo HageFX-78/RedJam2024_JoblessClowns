@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BAM
   m_EditorClassIdentifier: 
   name: Bam
-  propType: 1
+  propType: 2
   propBaseCoinValue: 100
   propSprite: {fileID: 21300000, guid: 748ebf1cc04b78f4cb12fd3a311aa654, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}

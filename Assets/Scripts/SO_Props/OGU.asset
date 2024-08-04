@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OGU
   m_EditorClassIdentifier: 
   name: Ogu
-  propType: 1
+  propType: 2
   propBaseCoinValue: 200
   propSprite: {fileID: 21300000, guid: cad349fa53fac374caedae531e7f8849, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
