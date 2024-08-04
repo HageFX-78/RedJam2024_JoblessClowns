@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject sprite;
     [SerializeField] private GameObject pointerAnchor;
     [SerializeField] private GameObject pointerSprite;
+    [SerializeField] private Animator indicatorRingAnimator;
 
     [Header("Movement parameters")]
     [SerializeField] private float dragDistance = 1.5f;
@@ -22,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxDamping = 0.995f;
     [SerializeField] private float stopMovementThreshold = 0.2f;
     [SerializeField] private float wallDamping = 0.9f;
-    [SerializeField] private float bounceBackForce = 5f;
 
     [SerializeField] private float noiseRange = 0.2f;
     [Header("Debug")]
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             damping = maxDamping;
             // Stops movement when under specified threshold
             if(lastVelocity.magnitude <= stopMovementThreshold && rb.velocity.magnitude <= stopMovementThreshold){
-                Debug.Log("Stopped");
+                indicatorRingAnimator.SetBool("active", true);
                 isMoving = false;
                 rb.velocity = Vector2.zero;
             }
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving) return;
         pointerAnchor.SetActive(false);
 
-
+        indicatorRingAnimator.SetBool("active", false);
         Vector2 finalForce = -(Vector2)dragPoint.transform.localPosition * ((Vector2)dragPoint.transform.localPosition).magnitude * shootForce;
         lastVelocity = finalForce; // Cache initial velocity
 
