@@ -81,6 +81,8 @@ public class GameManager : MonoBehaviour
                 gameOverMoneyText.text = moneyAmount.ToString();
                 gameOverMoneyTextAnimator.SetTrigger("Trigger");
 
+                SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("gameover"), gameOverPanel.transform, 1f);
+
                 Invoke("StopTime", 0.3f);
 
                 return;
