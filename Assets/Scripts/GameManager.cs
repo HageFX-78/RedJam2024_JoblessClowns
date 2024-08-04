@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator gameOverMoneyTextAnimator;
     [SerializeField] private float timeLimit = 240f;
 
+    [SerializeField] private Animator tutorialPanelAnimator;
+
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] private CinemachineBasicMultiChannelPerlin _cmCP;
     [SerializeField] private float shakeIntensity = 1f;
@@ -107,7 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        
+        CloseTutorialPanel();
         currentTime = timeLimit;
         moneyAmount = 0;
         moneyText.text = "$ " + moneyAmount.ToString();
@@ -165,5 +167,10 @@ public class GameManager : MonoBehaviour
     public void StopTime()
     {
         TimeManager.Instance.SlowStopTime(0.5f);
+    }
+
+    public void CloseTutorialPanel()
+    {
+        tutorialPanelAnimator.SetTrigger("AnimateOut");
     }
 }
