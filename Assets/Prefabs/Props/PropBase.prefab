@@ -154,8 +154,8 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.7
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.2924527, g: 0.9864894, b: 1, a: 1}
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -5132,4 +5132,5 @@ MonoBehaviour:
   original:
     serializedVersion: 2
     rgba: 4281315570
+  specifiedProp: {fileID: 0}
   propData: {fileID: 11400000, guid: b7908f655ed1cec4d898156f230ecdb6, type: 2}

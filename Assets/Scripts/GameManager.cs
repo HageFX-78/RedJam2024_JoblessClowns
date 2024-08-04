@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using Cinemachine;
 
 
 public class GameManager : MonoBehaviour
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float timeLimit = 240f;
 
+    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] private CinemachineBasicMultiChannelPerlin _cmCP;
+    [SerializeField] private float shakeIntensity = 1f;
+    [SerializeField] private float shakeTime = 0.2f;
+    private float shakeTimer = 0f;
     [SerializeField] public List<Prop> propList; // Trigger prop list NOT NORMAL
 
 
@@ -30,7 +36,8 @@ public class GameManager : MonoBehaviour
     public int moneyAmount = 0; // The amount of money the player has, score but we can use it for something maybe
 
     private List<KeyValuePair<Transform, bool>> spawnPoints = new List<KeyValuePair<Transform, bool>>();
-    void Start()
+    
+    void Awake()
     {
         if(instance == null)
         {
@@ -50,8 +57,10 @@ public class GameManager : MonoBehaviour
             propObj.transform.SetParent(transform.Find("Clones"));
             propObj.GetComponent<PropBehaviour>().InitializeProp(prop);
         }
+    }
+    void Start()
+    {
         StartGame();
-
     }
     void Update()
     {
@@ -71,6 +80,15 @@ public class GameManager : MonoBehaviour
 
             timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
+
+        if(shakeTimer >= 0 )
+        {
+            shakeTimer -= Time.deltaTime;
+            if(shakeTimer <= 0)
+            {
+                StopShake();
+            }
+        }
     }
 
 
@@ -85,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int amt)
     {
-        moneyAmount += amt;
+        moneyAmount += amt * 1000;
         moneyText.text = "$ " + moneyAmount.ToString();
         moneyTextAnimator.SetTrigger("AddCoin");
     }
@@ -116,5 +134,19 @@ public class GameManager : MonoBehaviour
     public void LoadMoney()
     {
         moneyAmount = PlayerPrefs.HasKey("Money") ? PlayerPrefs.GetInt("Money") : 0;
+    }
+
+    public void ShakeCamera()
+    {
+        CinemachineBasicMultiChannelPerlin _cmCP = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _cmCP.m_AmplitudeGain = shakeIntensity;
+
+        shakeTimer = shakeTime;
+    }
+    public void StopShake()
+    {
+        CinemachineBasicMultiChannelPerlin _cmCP = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _cmCP.m_AmplitudeGain = 0;
+        shakeTimer = 0;
     }
 }

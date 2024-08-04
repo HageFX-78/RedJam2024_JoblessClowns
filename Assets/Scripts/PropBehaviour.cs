@@ -42,6 +42,7 @@ public class PropBehaviour : MonoBehaviour
             thisCollider = boxCollider;
         }
         thisCollider.isTrigger = prop.propType == PropType.Trigger;
+        thisCollider.sharedMaterial = prop.physicsMaterial;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,6 +62,7 @@ public class PropBehaviour : MonoBehaviour
             StartCoroutine(resetColor);
 
             GameManager.instance.AddMoney(propData.propBaseCoinValue);
+            GameManager.instance.ShakeCamera();
         }
     }
     void OnTriggerEnter2D(Collider2D collision)

@@ -19,6 +19,6 @@ MonoBehaviour:
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 1
   propSpriteSize: {x: 0.5, y: 0.5}
-  propColliderRadius: 0.8
-  propColliderSize: {x: 1, y: 1}
+  propColliderRadius: 1
+  propColliderSize: {x: 1.5, y: 1.5}
   physicsMaterial: {fileID: 6200000, guid: e38d67ed6cb36064ab7c5278b5ba769e, type: 2}
