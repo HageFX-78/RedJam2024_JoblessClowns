@@ -347,10 +347,6 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6937412995462663933, guid: 91b2c85fa30aefe4e801600bba4d9711, type: 3}
-      propertyPath: timeLimit
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937412995462663933, guid: 91b2c85fa30aefe4e801600bba4d9711, type: 3}
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 1978159120}
@@ -12628,6 +12624,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3473d405599f68148a68aa7e7e2c5e19, type: 3}
   - {fileID: 8300000, guid: aee8306d8209de44c9044954c102875e, type: 3}
   - {fileID: 8300000, guid: 50019b014bbbf8346a1325bfc486b1c2, type: 3}
+  - {fileID: 8300000, guid: a6393addd21a13747b1284b52c3d78eb, type: 3}
 --- !u!4 &1529879731
 Transform:
   m_ObjectHideFlags: 0
