@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Animator moneyTextAnimator;
+    [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private float timeLimit = 240f;
 
@@ -72,6 +73,10 @@ public class GameManager : MonoBehaviour
                 currentTime = 0;
                 gameStarted = false;
                 //Game Over
+
+                gameOverPanel.SetActive(true);
+                TimeManager.Instance.PauseTime();
+
                 return;
             }
             //update time from seconds to minutes and seconds
