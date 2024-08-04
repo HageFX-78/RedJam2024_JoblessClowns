@@ -367,6 +367,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 942896897}
     - target: {fileID: 6937412995462663933, guid: 91b2c85fa30aefe4e801600bba4d9711, type: 3}
+      propertyPath: tutorialPanelAnimator
+      value: 
+      objectReference: {fileID: 278663280}
+    - target: {fileID: 6937412995462663933, guid: 91b2c85fa30aefe4e801600bba4d9711, type: 3}
       propertyPath: tutorialPanelAnimation
       value: 
       objectReference: {fileID: 0}
