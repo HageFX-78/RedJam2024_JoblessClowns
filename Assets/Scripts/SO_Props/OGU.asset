@@ -21,4 +21,4 @@ MonoBehaviour:
   propSpriteSize: {x: 1, y: 1}
   propColliderRadius: 1
   propColliderSize: {x: 1, y: 1}
-  physicsMaterial: {fileID: 6200000, guid: c756184ff0a538f47a38c4c1c127adf4, type: 2}
+  physicsMaterial: {fileID: 6200000, guid: d799a727d04d8b24dac4b0f250dc8abc, type: 2}

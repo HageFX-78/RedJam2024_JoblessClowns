@@ -15,7 +15,7 @@ MonoBehaviour:
   name: As1
   propType: 1
   propBaseCoinValue: 1
-  propSprite: {fileID: 251673131, guid: e821e05fb08de4449aefe09b9f365c63, type: 3}
+  propSprite: {fileID: -575400532, guid: e821e05fb08de4449aefe09b9f365c63, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 0
   propSpriteSize: {x: 1, y: 1}
