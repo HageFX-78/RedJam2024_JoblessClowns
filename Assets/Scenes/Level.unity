@@ -10904,7 +10904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1531404429055920156, guid: db49dfcb5259568469245d08bd7795d4, type: 3}
       propertyPath: m_Name
-      value: Buds Variant
+      value: Tappy
       objectReference: {fileID: 0}
     - target: {fileID: 8710905177541555312, guid: db49dfcb5259568469245d08bd7795d4, type: 3}
       propertyPath: specifiedProp
@@ -11959,6 +11959,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521600424}
   m_CullTransparentMesh: 1
+--- !u!1 &1529879729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1529879731}
+  - component: {fileID: 1529879730}
+  m_Layer: 0
+  m_Name: AudioStorage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1529879730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529879729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afadcdbdaee44f144b797532cad1bda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: a71d6347e1f4ffd43810448717a1c9c0, type: 3}
+  - {fileID: 8300000, guid: 8a3c3f11fc47faf43bfdca3fb28ae8e3, type: 3}
+  - {fileID: 8300000, guid: 5642b5d6d645e4047a4765b852d24fbf, type: 3}
+  - {fileID: 8300000, guid: 63948d323685b08469443dc4dc9b87ae, type: 3}
+  - {fileID: 8300000, guid: 3473d405599f68148a68aa7e7e2c5e19, type: 3}
+  - {fileID: 8300000, guid: aee8306d8209de44c9044954c102875e, type: 3}
+  - {fileID: 8300000, guid: 50019b014bbbf8346a1325bfc486b1c2, type: 3}
+--- !u!4 &1529879731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529879729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0408971, y: -17.86667, z: -0.08389226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531454071
 GameObject:
   m_ObjectHideFlags: 0
@@ -25694,7 +25746,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1531404429055920156, guid: db49dfcb5259568469245d08bd7795d4, type: 3}
       propertyPath: m_Name
-      value: Buds Variant
+      value: Ogu
       objectReference: {fileID: 0}
     - target: {fileID: 8710905177541555312, guid: db49dfcb5259568469245d08bd7795d4, type: 3}
       propertyPath: specifiedProp
@@ -26632,7 +26684,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1531404429055920156, guid: db49dfcb5259568469245d08bd7795d4, type: 3}
       propertyPath: m_Name
-      value: Buds
+      value: Bam
       objectReference: {fileID: 0}
     - target: {fileID: 8771202451803980989, guid: db49dfcb5259568469245d08bd7795d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26690,6 +26742,7 @@ SceneRoots:
   - {fileID: 716044314}
   - {fileID: 845351785}
   - {fileID: 1054868946}
+  - {fileID: 1529879731}
   - {fileID: 823977339}
   - {fileID: 1163703212}
   - {fileID: 2028991902}

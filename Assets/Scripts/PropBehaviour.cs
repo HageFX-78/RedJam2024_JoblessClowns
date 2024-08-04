@@ -50,8 +50,30 @@ public class PropBehaviour : MonoBehaviour
         {
             if(propData.propType == PropType.Normal)
             {
+                SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("hit"), transform, 1f);
                 spriteAnimator.SetTrigger("Collide");
             }
+            else if(propData.propType == PropType.Buds)
+            {
+                if(gameObject.name == "Bam")
+                {
+                    SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("bam"), transform, 1f);
+                }
+                else if(gameObject.name == "Ogu")
+                {
+                    SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("ogu"), transform, 1f);
+                }
+                else if(gameObject.name == "Tappy")
+                {
+                    SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("tappy"), transform, 1f);
+                } 
+                
+                spriteAnimator.SetTrigger("Buds");
+            }else
+            {
+                SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("hit"), transform, 1f);
+            }
+
             ps.Play();
 
             if (resetColor != null)

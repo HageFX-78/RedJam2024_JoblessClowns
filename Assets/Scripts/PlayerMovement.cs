@@ -124,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 veloNoise = new Vector2(UnityEngine.Random.Range(-noiseRange, noiseRange), UnityEngine.Random.Range(-noiseRange, noiseRange));
         rb.velocity = (direction * lastVelocity.magnitude * wallDamping) + veloNoise;
 
+        SFXManager.Instance.PlaySoundFXClip(AudioStorage.Instance.getAudioClip("hit"), transform, 1f);
         Animate();
     }
     private void OnTriggerEnter2D(Collider2D other)
