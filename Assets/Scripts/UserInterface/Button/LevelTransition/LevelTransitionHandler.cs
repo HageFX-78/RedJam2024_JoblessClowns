@@ -15,6 +15,14 @@ public class LevelTransitionHandler : MonoBehaviour
         Invoke(nameof(HandleLoadScene), buttonSoundClip.length);
     }
 
+    public void LoadLevelWithTransition(GameObject transitionPanel)
+    {
+        SFXManager.Instance.PlaySoundFXClip(buttonSoundClip, transform, 1f);
+
+        transitionPanel.SetActive(true);
+        Invoke(nameof(HandleLoadScene), 1f);
+    }
+
     private void HandleLoadScene()
     {
         LevelManager.LoadLevel(sceneToLoadto);

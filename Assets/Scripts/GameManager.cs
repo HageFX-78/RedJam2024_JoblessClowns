@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        StartGame();
+        //StartGame();
     }
     void Update()
     {
