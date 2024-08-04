@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator moneyTextAnimator;
     [SerializeField] private GameObject gameOverPanel;
 
+    [SerializeField] private TextMeshProUGUI gameOverMoneyText;
+    [SerializeField] private Animator gameOverMoneyTextAnimator;
     [SerializeField] private float timeLimit = 240f;
 
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
@@ -75,7 +77,11 @@ public class GameManager : MonoBehaviour
                 //Game Over
 
                 gameOverPanel.SetActive(true);
-                TimeManager.Instance.PauseTime();
+                //TimeManager.Instance.PauseTime();
+                gameOverMoneyText.text = moneyAmount.ToString();
+                gameOverMoneyTextAnimator.SetTrigger("Trigger");
+
+                Invoke("StopTime", 0.3f);
 
                 return;
             }
@@ -109,7 +115,7 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int amt)
     {
         moneyAmount += amt * 1000;
-        moneyText.text = "$ " + moneyAmount.ToString();
+        moneyText.text = moneyAmount.ToString() + " C";
         moneyTextAnimator.SetTrigger("AddCoin");
     }
     public void AddMoney(PropType propType)
@@ -153,5 +159,9 @@ public class GameManager : MonoBehaviour
         CinemachineBasicMultiChannelPerlin _cmCP = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         _cmCP.m_AmplitudeGain = 0;
         shakeTimer = 0;
+    }
+    public void StopTime()
+    {
+        TimeManager.Instance.SlowStopTime(0.5f);
     }
 }

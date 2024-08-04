@@ -36,7 +36,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastContactNormal = Vector2.zero;
 
     // ------------------------------------------------------- Unity functions
-
+    void Start()
+    {
+        indicatorRingAnimator.SetBool("active", true);
+    }
     void Update()
     {   if(! isMoving) return;
         lastVelocity = rb.velocity;

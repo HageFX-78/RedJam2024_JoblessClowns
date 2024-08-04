@@ -33,4 +33,21 @@ public class TimeManager : MonoBehaviour
         isTimePaused = false;
         Time.timeScale = 1;
     }
+
+    public void SlowStopTime(float duration)
+    {
+        StartCoroutine(CO_SlowStopTime(duration));
+    }
+    public IEnumerator CO_SlowStopTime(float duration)
+    {
+        float currentTime = 0;
+        float slowDownFactor = 0.1f;
+        while (currentTime < duration)
+        {
+            currentTime += Time.unscaledDeltaTime;
+            Time.timeScale = Mathf.Lerp(1, 0, currentTime / duration);
+            yield return null;
+        }
+        Time.timeScale = 0;
+    }
 }
