@@ -880,7 +880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 250783852294941857, guid: bf23cf46a44d8e542bfb8c6c0dfb89b5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 1684498274619329854, guid: bf23cf46a44d8e542bfb8c6c0dfb89b5, type: 3}
       propertyPath: m_Name
@@ -1038,8 +1038,7 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[1]
       value: 
       objectReference: {fileID: 7400000, guid: 61ff2f5d125b637439a4feefd8178074, type: 2}
-    m_RemovedComponents:
-    - {fileID: 6997750261140483949, guid: bf23cf46a44d8e542bfb8c6c0dfb89b5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 495387800425142114, guid: bf23cf46a44d8e542bfb8c6c0dfb89b5, type: 3}
     - {fileID: 1389857524140923577, guid: bf23cf46a44d8e542bfb8c6c0dfb89b5, type: 3}
@@ -25477,7 +25476,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1796814255
 RectTransform:
