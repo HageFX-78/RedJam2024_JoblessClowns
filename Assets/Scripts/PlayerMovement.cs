@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxDamping = 0.995f;
     [SerializeField] private float stopMovementThreshold = 0.2f;
     [SerializeField] private float wallDamping = 0.9f;
+    [SerializeField] private float bounceBackForce = 5f;
 
+    [SerializeField] private float noiseRange = 0.2f;
     [Header("Debug")]
     public bool isMoving = false;
     private Vector2 lastVelocity = Vector2.zero;
@@ -44,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
         {
             damping = maxDamping;
             // Stops movement when under specified threshold
-            if(lastVelocity.magnitude <= stopMovementThreshold){
+            if(lastVelocity.magnitude <= stopMovementThreshold && rb.velocity.magnitude <= stopMovementThreshold){
+                Debug.Log("Stopped");
                 isMoving = false;
                 rb.velocity = Vector2.zero;
             }
@@ -60,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMouseDrag()
     {
         if (isMoving) return;
-
+        pointerAnchor.SetActive(true);
         if(spriteShake == null)
         {
             spriteShake = ShakeSprite();
@@ -114,7 +117,9 @@ public class PlayerMovement : MonoBehaviour
         // Bounce off the wall
         lastContactNormal = other.contacts[0].normal;
         Vector2 direction = Vector2.Reflect(lastVelocity.normalized, lastContactNormal);
-        rb.velocity = direction * lastVelocity.magnitude * wallDamping;
+
+        Vector2 veloNoise = new Vector2(UnityEngine.Random.Range(-noiseRange, noiseRange), UnityEngine.Random.Range(-noiseRange, noiseRange));
+        rb.velocity = (direction * lastVelocity.magnitude * wallDamping) + veloNoise;
 
         Animate();
     }

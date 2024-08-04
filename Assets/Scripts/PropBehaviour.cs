@@ -10,10 +10,18 @@ public class PropBehaviour : MonoBehaviour
     [SerializeField] private Color32 color32;
     [SerializeField] private Color32 original;
 
+    [Header("Extra")]
+    [SerializeField] private Prop specifiedProp;
+
     private Collider2D thisCollider;
     public Prop propData;
     private IEnumerator resetColor = null;
 
+    void Start()
+    {   
+        if(specifiedProp != null)
+            InitializeProp(specifiedProp);
+    }
     public void InitializeProp(Prop prop)
     {
         spriteRenderer.color = prop.propColorOverlay;

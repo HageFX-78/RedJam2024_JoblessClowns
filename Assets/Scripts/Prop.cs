@@ -27,4 +27,5 @@ public class Prop : ScriptableObject
     public Vector2 propSpriteSize = Vector2.one;
     public float propColliderRadius = 1.0f;
     public Vector2 propColliderSize = Vector2.one;
+    public PhysicsMaterial2D physicsMaterial;
 }

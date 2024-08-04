@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject spawnPointParent;
     [SerializeField] private GameObject propBasePrefab;
+    [SerializeField] private Material physicsMat;
     [Header("in-game Gui")]
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI timeText;
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
             //update time from seconds to minutes and seconds
             int minutes = Mathf.FloorToInt(currentTime / 60.0f);
             int seconds = Mathf.FloorToInt(currentTime % 60f);
-            Debug.Log(currentTime);
+
             timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
