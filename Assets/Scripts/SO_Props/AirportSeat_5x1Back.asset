@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 541b5e524efc08348a26c8b4b789498d, type: 3}
-  m_Name: AirportSeats
+  m_Name: AirportSeat_5x1Back
   m_EditorClassIdentifier: 
-  name: AirportSeat
+  name: As5b
   propType: 1
   propBaseCoinValue: 1
-  propSprite: {fileID: 1763657111, guid: 3b439193ce0378742bfb19ef3905e494, type: 3}
+  propSprite: {fileID: -1774546042, guid: 3b439193ce0378742bfb19ef3905e494, type: 3}
   propColorOverlay: {r: 1, g: 1, b: 1, a: 1}
   colliderType: 0
   propSpriteSize: {x: 1, y: 1}
   propColliderRadius: 1
-  propColliderSize: {x: 3, y: 1}
+  propColliderSize: {x: 4, y: 1}
   physicsMaterial: {fileID: 6200000, guid: c756184ff0a538f47a38c4c1c127adf4, type: 2}

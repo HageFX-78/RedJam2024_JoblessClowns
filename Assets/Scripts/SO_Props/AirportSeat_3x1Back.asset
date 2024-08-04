@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 541b5e524efc08348a26c8b4b789498d, type: 3}
-  m_Name: AirportSeat1
+  m_Name: AirportSeat_3x1Back
   m_EditorClassIdentifier: 
-  name: As1
+  name: As3b
   propType: 1
   propBaseCoinValue: 1
   propSprite: {fileID: -575400532, guid: e821e05fb08de4449aefe09b9f365c63, type: 3}
@@ -20,5 +20,5 @@ MonoBehaviour:
   colliderType: 0
   propSpriteSize: {x: 1, y: 1}
   propColliderRadius: 1
-  propColliderSize: {x: 1, y: 1}
+  propColliderSize: {x: 2, y: 1}
   physicsMaterial: {fileID: 6200000, guid: c756184ff0a538f47a38c4c1c127adf4, type: 2}
